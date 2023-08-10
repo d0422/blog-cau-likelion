@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Parser from 'rss-parser';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Feed, { feed } from '@/components/Feed';
 import { JSDOM } from 'jsdom';
 import blogList from '../assets/data.json';
-export const getServerSideProps: GetServerSideProps<{
+export const getStaticProps: GetStaticProps<{
   data: feed[];
 }> = async () => {
   const parser = new Parser();
@@ -40,6 +40,7 @@ export const getServerSideProps: GetServerSideProps<{
             new Date(a.date as string).getTime()
         ),
     },
+    revalidate: 300,
   };
 };
 
@@ -67,7 +68,7 @@ const removeAdd = (content: string | undefined) => {
 
 export default function Home({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Wrapper>
       <Title>멋쟁이 사자들의 블로그 피드를 둘러보세요!</Title>
