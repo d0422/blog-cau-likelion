@@ -17,7 +17,7 @@ const Feed = ({ data }: { data: feed }) => {
       <Content>
         <a href={data.link}>
           <Title>{data.title}</Title>
-          <div>{data.content}</div>
+          <Inner>{data.content}</Inner>
         </a>
         <WriterAndDate>
           <DateContainer>{getDate(data.date as string)}</DateContainer>
@@ -52,6 +52,12 @@ const Writer = styled.div`
   font-weight: 700;
   display: flex;
   align-items: center;
+  @media (max-width: 786px) {
+    font-size: 9px;
+  }
+  @media (max-width: 500px) {
+    font-size: 6px;
+  }
 `;
 const Wrapper = styled.div`
   margin-bottom: 30px;
@@ -66,36 +72,37 @@ const Wrapper = styled.div`
   border-radius: 15px;
 `;
 const Title = styled.div`
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
+  @media (max-width: 786px) {
+    font-size: 15px;
+  }
   font-size: 1.5rem;
   font-weight: 700;
   font-family: 'Pretendard';
   margin-bottom: 20px;
 `;
-
+const Inner = styled.div`
+  font-size: 18px;
+  @media (max-width: 500px) {
+    font-size: 6px;
+  }
+  @media (max-width: 786px) {
+    font-size: 9px;
+  }
+`;
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-basis: 75%;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  min-width: 200px;
-  min-height: 200px;
+  flex-basis: 25%;
   object-fit: contain;
-  @media (max-width: 1440px) {
-    min-width: 200px;
-    min-height: 200px;
-  }
-
-  @media (max-width: 900px) {
-    min-width: 150px;
-    min-height: 150px;
-  }
-  @media (max-width: 360px) {
-    min-width: 100px;
-    min-height: 100px;
-  }
 `;
 const DateContainer = styled.div`
   display: flex;
@@ -103,9 +110,15 @@ const DateContainer = styled.div`
   font-size: 15px;
   font-family: 'Pretendard';
   font-weight: 600;
+  @media (max-width: 786px) {
+    font-size: 9px;
+  }
+  @media (max-width: 500px) {
+    font-size: 6px;
+  }
 `;
 const WriterAndDate = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 `;
