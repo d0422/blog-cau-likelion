@@ -13,34 +13,32 @@ export interface feed {
 }
 const Feed = ({ data }: { data: feed }) => {
   return (
-    <Wrapper>
-      <a href={data.link}>
-        <Content>
-          <Title>{data.title}</Title>
-          <Inner>{data.content}</Inner>
-          <WriterAndDate>
-            <DateContainer>{getDate(data.date as string)}</DateContainer>
-            <Writer>By {data.writer}</Writer>
-          </WriterAndDate>
-        </Content>
-        <ImageContainer>
-          {data.thumbnail ? (
-            <Image
-              src={data.thumbnail}
-              alt="이미지"
-              fill={true}
-              style={{ objectFit: 'contain' }}
-            />
-          ) : (
-            <Image
-              src={cauIcon}
-              alt="이미지"
-              fill={true}
-              style={{ objectFit: 'contain' }}
-            ></Image>
-          )}
-        </ImageContainer>
-      </a>
+    <Wrapper href={data.link}>
+      <Content>
+        <Title>{data.title}</Title>
+        <Inner>{data.content}</Inner>
+        <WriterAndDate>
+          <DateContainer>{getDate(data.date as string)}</DateContainer>
+          <Writer>By {data.writer}</Writer>
+        </WriterAndDate>
+      </Content>
+      <ImageContainer>
+        {data.thumbnail ? (
+          <Image
+            src={data.thumbnail}
+            alt="이미지"
+            fill={true}
+            style={{ objectFit: 'contain' }}
+          />
+        ) : (
+          <Image
+            src={cauIcon}
+            alt="이미지"
+            fill={true}
+            style={{ objectFit: 'contain' }}
+          ></Image>
+        )}
+      </ImageContainer>
     </Wrapper>
   );
 };
@@ -59,7 +57,7 @@ const Writer = styled.div`
     font-size: 6px;
   }
 `;
-const Wrapper = styled.div`
+const Wrapper = styled.a`
   margin-bottom: 30px;
   display: flex;
   gap: 20px;
