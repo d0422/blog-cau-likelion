@@ -10,7 +10,6 @@ export const getServerSideProps: GetServerSideProps<{
   const parseList = [
     { name: '동길', blog: 'https://0422.tistory.com/rss' },
     { name: '규한', blog: 'https://v2.velog.io/rss/@ghenmaru' },
-    { name: '윤호', blog: 'https://v2.velog.io/rss/@hnnynh' },
     { name: '재영', blog: 'https://cjy3458.tistory.com/rss' },
     { name: '상현', blog: 'https://v2.velog.io/rss/@sanghyunna' },
   ];
