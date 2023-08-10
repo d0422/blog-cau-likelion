@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { styled } from 'styled-components';
 export interface feed {
-  name: string;
+  writer: string;
   title: string | undefined;
   link: string | undefined;
   content: string | undefined;
@@ -17,6 +17,10 @@ const Feed = ({ data }: { data: feed }) => {
           <Title>{data.title}</Title>
           <div>{data.content}</div>
         </a>
+        <WriterAndDate>
+          <DateContainer>{getDate(data.date as string)}</DateContainer>
+          <Writer>By {data.writer}</Writer>
+        </WriterAndDate>
       </Content>
       <ImageContainer>
         {data.thumbnail && (
@@ -33,11 +37,23 @@ const Feed = ({ data }: { data: feed }) => {
 };
 
 export default Feed;
-
+const Writer = styled.div`
+  font-size: 15px;
+  font-family: 'Pretendard';
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+`;
 const Wrapper = styled.div`
   margin-bottom: 30px;
   display: flex;
   gap: 20px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
+  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 15px;
 `;
 const Title = styled.div`
   font-size: 1.5rem;
@@ -46,7 +62,11 @@ const Title = styled.div`
   margin-bottom: 20px;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const ImageContainer = styled.div`
   position: relative;
@@ -54,3 +74,23 @@ const ImageContainer = styled.div`
   min-height: 200px;
   object-fit: contain;
 `;
+const DateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-family: 'Pretendard';
+  font-weight: 600;
+`;
+const WriterAndDate = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const getDate = (day: string) => {
+  const today = new Date(day);
+  var year = today.getFullYear();
+  var month = String(today.getMonth() + 1).padStart(2, '0');
+  var day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
