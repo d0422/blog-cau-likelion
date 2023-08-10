@@ -12,6 +12,7 @@ export const getServerSideProps: GetServerSideProps<{
     { name: '규한', blog: 'https://v2.velog.io/rss/@ghenmaru' },
     { name: '재영', blog: 'https://cjy3458.tistory.com/rss' },
     { name: '상현', blog: 'https://v2.velog.io/rss/@sanghyunna' },
+    { name: '윤호', blog: 'https://v2.velog.io/rss/@hnnynh' },
   ];
   const parsingData = await Promise.all(
     parseList.map(async ({ name, blog }) => {
