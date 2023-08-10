@@ -14,33 +14,33 @@ export interface feed {
 const Feed = ({ data }: { data: feed }) => {
   return (
     <Wrapper>
-      <Content>
-        <a href={data.link}>
+      <a href={data.link}>
+        <Content>
           <Title>{data.title}</Title>
           <Inner>{data.content}</Inner>
-        </a>
-        <WriterAndDate>
-          <DateContainer>{getDate(data.date as string)}</DateContainer>
-          <Writer>By {data.writer}</Writer>
-        </WriterAndDate>
-      </Content>
-      <ImageContainer>
-        {data.thumbnail ? (
-          <Image
-            src={data.thumbnail}
-            alt="이미지"
-            fill={true}
-            style={{ objectFit: 'contain' }}
-          />
-        ) : (
-          <Image
-            src={cauIcon}
-            alt="이미지"
-            fill={true}
-            style={{ objectFit: 'contain' }}
-          ></Image>
-        )}
-      </ImageContainer>
+          <WriterAndDate>
+            <DateContainer>{getDate(data.date as string)}</DateContainer>
+            <Writer>By {data.writer}</Writer>
+          </WriterAndDate>
+        </Content>
+        <ImageContainer>
+          {data.thumbnail ? (
+            <Image
+              src={data.thumbnail}
+              alt="이미지"
+              fill={true}
+              style={{ objectFit: 'contain' }}
+            />
+          ) : (
+            <Image
+              src={cauIcon}
+              alt="이미지"
+              fill={true}
+              style={{ objectFit: 'contain' }}
+            ></Image>
+          )}
+        </ImageContainer>
+      </a>
     </Wrapper>
   );
 };
