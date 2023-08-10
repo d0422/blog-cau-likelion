@@ -23,7 +23,7 @@ const Layout = styled.div`
     padding: 100px 100px 100px 100px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 786px) {
     padding: 70px 20px;
   }
   padding: 100px 160px 100px 160px;
