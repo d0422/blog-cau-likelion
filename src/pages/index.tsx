@@ -3,19 +3,13 @@ import Parser from 'rss-parser';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Feed, { feed } from '@/components/Feed';
 import { JSDOM } from 'jsdom';
+import blogList from '../assets/data.json';
 export const getServerSideProps: GetServerSideProps<{
   data: feed[];
 }> = async () => {
   const parser = new Parser();
-  const parseList = [
-    { name: '동길', blog: 'https://0422.tistory.com/rss' },
-    { name: '규한', blog: 'https://v2.velog.io/rss/@ghenmaru' },
-    { name: '재영', blog: 'https://cjy3458.tistory.com/rss' },
-    { name: '상현', blog: 'https://v2.velog.io/rss/@sanghyunna' },
-    { name: '윤호', blog: 'https://v2.velog.io/rss/@hnnynh' },
-  ];
   const parsingData = await Promise.all(
-    parseList.map(async ({ name, blog }) => {
+    blogList.map(async ({ name, blog }) => {
       const feed = await parser.parseURL(blog);
       const result = feed.items.map((item) => {
         return {
