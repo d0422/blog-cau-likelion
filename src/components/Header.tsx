@@ -8,17 +8,19 @@ const inter = Inter({ subsets: ['latin'] });
 const Header = () => {
   return (
     <Wrapper>
-      <Logo>
-        <LogoImage>
-          <Image
-            src={cauIcon}
-            fill={true}
-            style={{ objectFit: 'contain' }}
-            alt="logo"
-          />
-        </LogoImage>
-        <Title>LIKELION</Title>
-      </Logo>
+      <a href="https://cau-likelion.org">
+        <Logo>
+          <LogoImage>
+            <Image
+              src={cauIcon}
+              fill={true}
+              style={{ objectFit: 'contain' }}
+              alt="logo"
+            />
+          </LogoImage>
+          <Title>LIKELION</Title>
+        </Logo>
+      </a>
     </Wrapper>
   );
 };
