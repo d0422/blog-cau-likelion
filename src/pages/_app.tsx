@@ -2,10 +2,15 @@ import Header from '@/components/Header';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { styled } from 'styled-components';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <title>LikeLionCAU Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Layout>
         <Header />
         <Component {...pageProps} />
