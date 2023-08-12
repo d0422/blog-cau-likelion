@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { styled } from 'styled-components';
 import cauIcon from '@/image/cau사자.png';
 
@@ -13,6 +13,11 @@ export interface feed {
   'content:encoded'?: string;
 }
 const Feed = ({ data }: { data: feed }) => {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
   return (
     <Wrapper href={data.link}>
       <Title>{data.title}</Title>
@@ -23,10 +28,11 @@ const Feed = ({ data }: { data: feed }) => {
         <ImageContainer>
           {data.thumbnail ? (
             <Image
-              src={data.thumbnail}
+              src={imageError ? cauIcon : data.thumbnail}
               alt="이미지"
               fill={true}
               style={{ objectFit: 'contain' }}
+              onError={handleImageError}
             />
           ) : (
             <Image
@@ -34,7 +40,7 @@ const Feed = ({ data }: { data: feed }) => {
               alt="이미지"
               fill={true}
               style={{ objectFit: 'contain' }}
-            ></Image>
+            />
           )}
         </ImageContainer>
       </Container>
