@@ -10,6 +10,21 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>LikeLionCAU Blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="CAU-Likelion Blog" />
+        <meta
+          name="keywords"
+          content="IT개발, 웹개발, 중앙대학교, 멋쟁이사자처럼, 동아리, 블로그, 피드"
+        />
+
+        <meta
+          property="og:description"
+          content="멋쟁이 사자들을 위한 블로그 피드"
+        />
+        <meta property="og:url" content="https://blog.cau-likelion.org/" />
+        <meta
+          property="og:image"
+          content="https://cau-likelion.org/image/logoThumbnail.png"
+        />
       </Head>
       <Layout>
         <Header />
