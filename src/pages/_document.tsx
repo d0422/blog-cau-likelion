@@ -58,6 +58,7 @@ export default class MyDocument extends Document {
             async
             defer
           ></script>
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
