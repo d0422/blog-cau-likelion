@@ -72,6 +72,10 @@ const Wrapper = styled.a`
   padding: 15px;
   background-color: #ffffff;
   border-radius: 15px;
+  &:hover {
+    transform: scale(1.01);
+    transition: 0.1s;
+  }
 `;
 const Container = styled.div`
   display: flex;
