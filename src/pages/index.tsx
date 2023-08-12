@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 const Title = styled.div`
-  font-size: 1.5rem;
+  font-size: 28px;
   font-weight: 700;
   font-family: 'Pretendard';
   @media (max-width: 1440px) {

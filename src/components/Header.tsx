@@ -77,8 +77,9 @@ const Title = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 900;
+  font-size: 24px;
   @media (max-width: 1440px) {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
   @media (max-width: 786px) {
     font-size: 18px;
