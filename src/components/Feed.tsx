@@ -94,10 +94,10 @@ const Inner = styled.div`
   font-size: 18px;
   width: 100%;
   @media (max-width: 786px) {
-    font-size: 15px;
+    font-size: 16px;
   }
   @media (max-width: 500px) {
-    font-size: 13px;
+    font-size: 10px;
   }
 `;
 const Content = styled.div`
