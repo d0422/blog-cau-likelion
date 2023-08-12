@@ -41,4 +41,13 @@ const Title = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   font-family: 'Pretendard';
+  @media (max-width: 1440px) {
+    font-size: 24px;
+  }
+  @media (max-width: 786px) {
+    font-size: 20px;
+  }
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
