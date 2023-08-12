@@ -59,6 +59,8 @@ export default class MyDocument extends Document {
             defer
           ></script>
           <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="icons/icon-192x192.png"></link>
+          <meta name="msapplication-TileColor" content="#FFFFFF"></meta>
         </Head>
         <body>
           <Main />
