@@ -5,11 +5,12 @@ import cauIcon from '@/image/cau사자.png';
 
 export interface feed {
   writer: string;
-  title: string | undefined;
-  link: string | undefined;
-  content: string | undefined;
+  title: string;
+  link: string;
+  content?: string;
   thumbnail: string | null;
-  date: string | undefined;
+  date: string;
+  'content:encoded'?: string;
 }
 const Feed = ({ data }: { data: feed }) => {
   return (

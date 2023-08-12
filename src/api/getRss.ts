@@ -9,25 +9,30 @@ export const getRss = async () => {
     blogList.map(async ({ name, blog }) => {
       const feed = await parser.parseURL(blog);
       const result = feed.items.map((item) => {
+        const content = decideContent(item as feed);
         return {
           title: item.title,
           writer: name,
           link: item.link,
-          content: removeAdd(
-            item.content ? item.content : item['content:encoded']
-          )
+          content: removeAdd(content)
             .replace(/<[^>]*>?/g, '')
             .replace(/\n/g, '')
+            .replace(/&nbsp/g, '')
             .trim()
             .replace(/\s+/g, ' ')
             .slice(0, 300),
-          thumbnail: getThumbnail(item.content),
+          thumbnail: getThumbnail(content),
           date: item.isoDate,
         };
       });
       return result as unknown as feed[];
     })
   );
+};
+
+const decideContent = (item: feed) => {
+  if (item.content) return item.content;
+  return item['content:encoded'];
 };
 
 const getThumbnail = (content: string | undefined) => {
