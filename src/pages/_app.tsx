@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { styled } from 'styled-components';
 import Head from 'next/head';
+import Script from 'next/script';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -26,6 +27,16 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://cau-likelion.org/image/logoThumbnail.png"
         />
       </Head>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZC5CFY95Y5" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-ZC5CFY95Y5');
+        `}
+      </Script>
       <Layout>
         <Header />
         <Component {...pageProps} />
