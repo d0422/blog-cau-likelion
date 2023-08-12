@@ -15,31 +15,33 @@ export interface feed {
 const Feed = ({ data }: { data: feed }) => {
   return (
     <Wrapper href={data.link}>
-      <Content>
-        <Title>{data.title}</Title>
-        <Inner>{data.content}</Inner>
-        <WriterAndDate>
-          <DateContainer>{getDate(data.date as string)}</DateContainer>
-          <Writer>By {data.writer}</Writer>
-        </WriterAndDate>
-      </Content>
-      <ImageContainer>
-        {data.thumbnail ? (
-          <Image
-            src={data.thumbnail}
-            alt="이미지"
-            fill={true}
-            style={{ objectFit: 'contain' }}
-          />
-        ) : (
-          <Image
-            src={cauIcon}
-            alt="이미지"
-            fill={true}
-            style={{ objectFit: 'contain' }}
-          ></Image>
-        )}
-      </ImageContainer>
+      <Title>{data.title}</Title>
+      <Container>
+        <Content>
+          <Inner>{data.content}</Inner>
+        </Content>
+        <ImageContainer>
+          {data.thumbnail ? (
+            <Image
+              src={data.thumbnail}
+              alt="이미지"
+              fill={true}
+              style={{ objectFit: 'contain' }}
+            />
+          ) : (
+            <Image
+              src={cauIcon}
+              alt="이미지"
+              fill={true}
+              style={{ objectFit: 'contain' }}
+            ></Image>
+          )}
+        </ImageContainer>
+      </Container>
+      <WriterAndDate>
+        <DateContainer>{getDate(data.date as string)}</DateContainer>
+        <Writer>By {data.writer}</Writer>
+      </WriterAndDate>
     </Wrapper>
   );
 };
@@ -52,16 +54,17 @@ const Writer = styled.div`
   display: flex;
   align-items: center;
   @media (max-width: 786px) {
-    font-size: 9px;
+    font-size: 13px;
   }
   @media (max-width: 500px) {
-    font-size: 6px;
+    font-size: 12px;
   }
 `;
 const Wrapper = styled.a`
   margin-bottom: 30px;
+  overflow-x: hidden;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
@@ -70,13 +73,18 @@ const Wrapper = styled.a`
   background-color: #ffffff;
   border-radius: 15px;
 `;
+const Container = styled.div`
+  display: flex;
+  gap: 20px;
+`;
 const Title = styled.div`
-  @media (max-width: 500px) {
-    font-size: 10px;
-  }
   @media (max-width: 786px) {
-    font-size: 15px;
+    font-size: 20px;
   }
+  @media (max-width: 500px) {
+    font-size: 16px;
+  }
+
   font-size: 1.5rem;
   font-weight: 700;
   font-family: 'Pretendard';
@@ -84,23 +92,24 @@ const Title = styled.div`
 `;
 const Inner = styled.div`
   font-size: 18px;
-  @media (max-width: 500px) {
-    font-size: 6px;
-  }
+  width: 100%;
   @media (max-width: 786px) {
-    font-size: 9px;
+    font-size: 15px;
+  }
+  @media (max-width: 500px) {
+    font-size: 13px;
   }
 `;
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-basis: 75%;
+  flex-basis: 70%;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  flex-basis: 25%;
+  flex-basis: 30%;
   object-fit: contain;
 `;
 const DateContainer = styled.div`
@@ -110,10 +119,10 @@ const DateContainer = styled.div`
   font-family: 'Pretendard';
   font-weight: 600;
   @media (max-width: 786px) {
-    font-size: 9px;
+    font-size: 13px;
   }
   @media (max-width: 500px) {
-    font-size: 6px;
+    font-size: 12px;
   }
 `;
 const WriterAndDate = styled.div`
