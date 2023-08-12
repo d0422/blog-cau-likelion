@@ -81,9 +81,9 @@ const Title = styled.p`
     font-size: 1.5rem;
   }
   @media (max-width: 786px) {
-    font-size: 12px;
+    font-size: 18px;
   }
   @media (max-width: 500px) {
-    font-size: 10px;
+    font-size: 15px;
   }
 `;
