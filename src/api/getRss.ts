@@ -13,7 +13,9 @@ export const getRss = async () => {
           title: item.title,
           writer: name,
           link: item.link,
-          content: removeAdd(item?.content)
+          content: removeAdd(
+            item.content ? item.content : item['content:encoded']
+          )
             .replace(/<[^>]*>?/g, '')
             .replace(/\n/g, '')
             .trim()
