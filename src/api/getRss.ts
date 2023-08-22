@@ -5,7 +5,9 @@ import { JSDOM } from 'jsdom';
 import axios from 'axios';
 
 export const getRss = async () => {
-  await axios.get('http://front.cau-likelion.org/feed');
+  await axios.post('http://front.cau-likelion.org/feed', {
+    blogList,
+  });
   const parser = new Parser();
   return await Promise.all(
     blogList.map(async ({ name, blog }) => {
