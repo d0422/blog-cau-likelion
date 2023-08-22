@@ -4,8 +4,44 @@ import type { AppProps } from 'next/app';
 import { styled } from 'styled-components';
 import Head from 'next/head';
 import Script from 'next/script';
+import './FirebaseInit';
+import { initializeApp } from 'firebase/app';
+import { useEffect } from 'react';
+import { getFireBaseToken } from './FirebaseInit';
+import axios from 'axios';
+const firebaseConfig = {
+  apiKey: 'AIzaSyCPZojB-MYCEJ-Q8fFzaAGNxz-ZS0erg1I',
+  authDomain: 'blog-cau-likelion.firebaseapp.com',
+  projectId: 'blog-cau-likelion',
+  storageBucket: 'blog-cau-likelion.appspot.com',
+  messagingSenderId: '93033443629',
+  appId: '1:93033443629:web:d4ef31afbc2825bc7963a4',
+  measurementId: 'G-801E6Y0Z1D',
+};
+
+const app = initializeApp(firebaseConfig);
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    fireBaseMessageToken();
+  }, []);
+  const fireBaseMessageToken = async () => {
+    const fcmtoken = await getFireBaseToken();
+    const tokens = await axios.get('http://front.cau-likelion.org/fcmtoken');
+    if (tokens) {
+      const result = tokens.data.find(
+        ({ token }: { token: string }) => token === fcmtoken
+      );
+      if (!result) {
+        const response = await axios.post(
+          'http://front.cau-likelion.org/fcmtoken',
+          {
+            token: fcmtoken,
+          }
+        );
+      }
+    }
+  };
   return (
     <>
       <Head>

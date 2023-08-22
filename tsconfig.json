@@ -19,6 +19,6 @@
       "@/image/*": ["./public/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "useState.js"],
   "exclude": ["node_modules"]
 }
