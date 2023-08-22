@@ -29,7 +29,8 @@ messaging.onBackgroundMessage((payload) => {
     payload
   );
   const options = {
-    body: payload.data,
+    body: payload.notification.body,
+    icon: payload.notification.icon,
   };
-  self.registration.showNotification('알림테스트', options);
+  self.registration.showNotification('새로운 글이 작성되었어요!', options);
 });
