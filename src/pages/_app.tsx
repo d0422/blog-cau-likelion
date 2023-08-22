@@ -27,18 +27,15 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   const fireBaseMessageToken = async () => {
     const fcmtoken = await getFireBaseToken();
-    const tokens = await axios.get('http://front.cau-likelion.org/fcmtoken');
+    const tokens = await axios.get('/fcmtoken');
     if (tokens) {
       const result = tokens.data.find(
         ({ token }: { token: string }) => token === fcmtoken
       );
       if (!result) {
-        const response = await axios.post(
-          'http://front.cau-likelion.org/fcmtoken',
-          {
-            token: fcmtoken,
-          }
-        );
+        const response = await axios.post('/fcmtoken', {
+          token: fcmtoken,
+        });
       }
     }
   };

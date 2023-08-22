@@ -13,6 +13,14 @@ const nextConfig = {
       },
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/fcmtoken',
+        destination: 'http://front.cau-likelion.org/fcmtoken',
+      },
+    ];
+  },
 };
 module.exports = withPlugins(
   [
