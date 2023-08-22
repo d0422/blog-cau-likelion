@@ -4,10 +4,10 @@ import type { AppProps } from 'next/app';
 import { styled } from 'styled-components';
 import Head from 'next/head';
 import Script from 'next/script';
-import './FirebaseInit';
+import '../FirebaseInit';
 import { initializeApp } from 'firebase/app';
 import { useEffect } from 'react';
-import { getFireBaseToken } from './FirebaseInit';
+import { getFireBaseToken } from '../FirebaseInit';
 import axios from 'axios';
 const firebaseConfig = {
   apiKey: 'AIzaSyCPZojB-MYCEJ-Q8fFzaAGNxz-ZS0erg1I',
