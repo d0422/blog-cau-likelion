@@ -29,8 +29,9 @@ messaging.onBackgroundMessage((payload) => {
     payload
   );
   const options = {
-    body: payload.notification.body,
-    icon: payload.notification.icon,
+    body: payload.data.body,
+    icon: payload.data.image,
+    vibrate: [200, 100, 200],
   };
   self.registration.showNotification('새로운 글이 작성되었어요!', options);
 });
