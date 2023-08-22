@@ -28,5 +28,8 @@ messaging.onBackgroundMessage((payload) => {
     '[firebase-messaging-sw.js] Received background message ',
     payload
   );
-  self.registration.showNotification(payload, notificationOptions);
+  const options = {
+    body: payload.data,
+  };
+  self.registration.showNotification('알림테스트', options);
 });
