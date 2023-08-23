@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import '../FirebaseInit';
 import { initializeApp } from 'firebase/app';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getFireBaseToken } from '../FirebaseInit';
 import axios from 'axios';
 const firebaseConfig = {
@@ -20,6 +20,7 @@ const firebaseConfig = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [token, setToken] = useState<string>();
   useEffect(() => {
     const app = initializeApp(firebaseConfig);
     fireBaseMessageToken();
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
         });
       }
     }
+    setToken(fcmtoken);
   };
   return (
     <>
@@ -75,6 +77,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Script>
       <Layout>
         <Header />
+        <h3>{token}</h3>
         <Component {...pageProps} />
       </Layout>
     </>
