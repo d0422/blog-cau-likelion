@@ -31,13 +31,13 @@ export default function App({ Component, pageProps }: AppProps) {
       await Notification.requestPermission();
     }
     const fcmtoken = await getFireBaseToken();
-    const tokens = await axios.get('/fcmtoken');
+    const tokens = await axios.get('api/token');
     if (tokens) {
       const result = tokens.data.find(
         ({ token }: { token: string }) => token === fcmtoken
       );
       if (!result) {
-        const response = await axios.post('/fcmtoken', {
+        const response = await axios.post('api/token', {
           token: fcmtoken,
         });
       }
@@ -77,7 +77,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </Script>
       <Layout>
         <Header />
-        <h3>{token}</h3>
         <Component {...pageProps} />
       </Layout>
     </>
