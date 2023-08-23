@@ -19,10 +19,9 @@ const firebaseConfig = {
   measurementId: 'G-801E6Y0Z1D',
 };
 
-const app = initializeApp(firebaseConfig);
-
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    const app = initializeApp(firebaseConfig);
     fireBaseMessageToken();
   }, []);
   const fireBaseMessageToken = async () => {
@@ -38,7 +37,6 @@ export default function App({ Component, pageProps }: AppProps) {
         });
       }
     }
-    alert(fcmtoken);
   };
   return (
     <>
