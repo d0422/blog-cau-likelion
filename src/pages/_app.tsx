@@ -20,7 +20,6 @@ const firebaseConfig = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [token, setToken] = useState<string>();
   useEffect(() => {
     const app = initializeApp(firebaseConfig);
     fireBaseMessageToken();
@@ -31,18 +30,17 @@ export default function App({ Component, pageProps }: AppProps) {
       await Notification.requestPermission();
     }
     const fcmtoken = await getFireBaseToken();
-    const tokens = await axios.get('api/token');
+    const tokens = await axios.get(`${window.location.href}api/token`);
     if (tokens) {
       const result = tokens.data.find(
         ({ token }: { token: string }) => token === fcmtoken
       );
       if (!result) {
-        const response = await axios.post('api/token', {
+        await axios.post(`${window.location.href}api/token`, {
           token: fcmtoken,
         });
       }
     }
-    setToken(fcmtoken);
   };
   return (
     <>
