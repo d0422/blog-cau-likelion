@@ -41,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         });
       }
     }
+    console.log('결과 : ', tokens);
   };
   return (
     <>
