@@ -23,7 +23,6 @@ export const getStaticProps: GetStaticProps<{
 export default function Home({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(11);
   return (
     <Wrapper>
       <Title>멋쟁이 사자들의 블로그 피드를 둘러보세요!</Title>
