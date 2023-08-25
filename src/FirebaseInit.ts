@@ -11,6 +11,6 @@ export const getFireBaseToken = async () => {
     });
     return token;
   } catch (err: any) {
-    throw new Error('오류', err);
+    throw err;
   }
 };
