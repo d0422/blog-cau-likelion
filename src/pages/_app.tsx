@@ -24,8 +24,13 @@ export default function App({ Component, pageProps }: AppProps) {
     try {
       console.log('test');
       const app = initializeApp(firebaseConfig);
-      fireBaseMessageToken();
-      console.log('??');
+      fireBaseMessageToken()
+        .then(() => {
+          console.log('??');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
