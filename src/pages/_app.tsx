@@ -20,11 +20,13 @@ const firebaseConfig = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('test');
   useEffect(() => {
-    console.log(1);
-    const app = initializeApp(firebaseConfig);
-    fireBaseMessageToken();
+    try {
+      const app = initializeApp(firebaseConfig);
+      fireBaseMessageToken();
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
   const fireBaseMessageToken = async () => {
     const permission = Notification.permission;

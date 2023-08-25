@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 const Header = () => {
-  console.log(1);
   return (
     <Wrapper>
       <a href="https://cau-likelion.org">
