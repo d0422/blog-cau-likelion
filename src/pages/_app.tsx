@@ -21,6 +21,7 @@ const firebaseConfig = {
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    console.log(1)
     const app = initializeApp(firebaseConfig);
     fireBaseMessageToken();
   }, []);
