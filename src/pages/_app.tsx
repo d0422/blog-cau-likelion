@@ -29,10 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, []);
   const fireBaseMessageToken = async () => {
-    const permission = Notification.permission;
-    if (permission !== 'granted') {
-      await Notification.requestPermission();
-    }
     const fcmtoken = await getFireBaseToken();
     const tokens = await axios.get(`${window.location.href}api/token`);
     if (tokens) {
