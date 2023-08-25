@@ -32,7 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   const fireBaseMessageToken = async () => {
     const fcmtoken = await getFireBaseToken();
+    console.log(fcmtoken);
     const tokens = await axios.get(`${window.location.href}api/token`);
+    console.log(tokens);
     if (tokens) {
       const result = tokens.data.find(
         ({ token }: { token: string }) => token === fcmtoken
