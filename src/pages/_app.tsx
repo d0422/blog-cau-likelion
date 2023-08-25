@@ -20,8 +20,9 @@ const firebaseConfig = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+  console.log('test');
   useEffect(() => {
-    console.log(1)
+    console.log(1);
     const app = initializeApp(firebaseConfig);
     fireBaseMessageToken();
   }, []);
