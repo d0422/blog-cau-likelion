@@ -11,8 +11,10 @@ https://blog.cau-likelion.org
 ![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
 벨로그, 티스토리, 네이버 블로그에서 제공하는 RSS를 파싱하여 피드형태로 구성하여 제공합니다.
+피드가 업데이트되면 푸시 알림을 전송합니다.
 
 ### 참고사항
 
