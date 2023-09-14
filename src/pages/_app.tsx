@@ -22,24 +22,15 @@ const firebaseConfig = {
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     try {
-      console.log('test');
       const app = initializeApp(firebaseConfig);
-      fireBaseMessageToken()
-        .then(() => {
-          console.log('??');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      fireBaseMessageToken();
     } catch (err) {
       console.log(err);
     }
   }, []);
   const fireBaseMessageToken = async () => {
     const fcmtoken = await getFireBaseToken();
-    console.log(fcmtoken);
     const tokens = await axios.get(`${window.location.href}api/token`);
-    console.log(tokens);
     if (tokens) {
       const result = tokens.data.find(
         ({ token }: { token: string }) => token === fcmtoken
