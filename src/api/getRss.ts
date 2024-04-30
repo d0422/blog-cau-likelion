@@ -8,7 +8,9 @@ export const getRss = async () => {
   await axios.post('http://front.cau-likelion.org/feed', {
     blogList,
   });
-  const parser = new Parser();
+  const parser =new Parser({
+    headers: {'Accept': 'application/rss+xml, text/xml; q=0.1'},
+  });
   return await Promise.all(
     blogList.map(async ({ name, blog }) => {
       const feed = await parser.parseURL(blog);
