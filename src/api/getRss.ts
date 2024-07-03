@@ -2,14 +2,10 @@ import { feed } from '@/components/Feed';
 import blogList from '../assets/data.json';
 import Parser from 'rss-parser';
 import { JSDOM } from 'jsdom';
-import axios from 'axios';
 
 export const getRss = async () => {
-  await axios.post('http://front.cau-likelion.org/feed', {
-    blogList,
-  });
-  const parser =new Parser({
-    headers: {'Accept': 'application/rss+xml, text/xml; q=0.1'},
+  const parser = new Parser({
+    headers: { Accept: 'application/rss+xml, text/xml; q=0.1' },
   });
   return await Promise.all(
     blogList.map(async ({ name, blog }) => {
